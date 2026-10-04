@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Junhyeok Lee — Medical Imaging AI</title>
+  <meta name="description" content="Junhyeok Lee is a Ph.D. student at Seoul National University College of Medicine working on medical imaging AI for noisy, incomplete, and context-dependent clinical data.">
+  <meta name="author" content="Junhyeok Lee">
+  <meta name="theme-color" content="#07090d">
+  <link rel="canonical" href="https://jhlee0619.github.io/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jhlee0619.github.io/">
+  <meta property="og:title" content="Junhyeok Lee — Medical Imaging AI">
+  <meta property="og:description" content="Medical imaging AI for imperfect clinical data. Ph.D. student at Seoul National University College of Medicine.">
+  <meta property="og:image" content="https://jhlee0619.github.io/assets/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>
+    // Resolve theme + language before first paint to avoid a flash.
+    (function () {
+      var d = document.documentElement, theme, lang;
+      try { theme = localStorage.getItem('theme'); lang = localStorage.getItem('lang'); } catch (e) {}
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q === 'ko' || q === 'en') lang = q;
+      d.setAttribute('data-theme', theme);
+      d.classList.add('js');
+      d.setAttribute('lang', lang === 'ko' ? 'ko' : 'en');
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Junhyeok Lee",
+    "alternateName": "이준혁",
+    "jobTitle": "Ph.D. student",
+    "affiliation": { "@type": "Organization", "name": "Seoul National University College of Medicine" },
+    "email": "mailto:evening0619@gmail.com",
+    "url": "https://jhlee0619.github.io/",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=uQGNBV0AAAAJ",
+      "https://github.com/jhlee0619",
+      "https://huggingface.co/jhlee0619"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="Junhyeok Lee — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28"><rect x="1" y="1" width="30" height="30" rx="9" fill="none" stroke="currentColor" stroke-opacity=".25"/><circle cx="16" cy="16" r="6.5" fill="none" stroke="url(#bm)" stroke-width="2.4"/><circle cx="16" cy="16" r="2" fill="url(#bm)"/><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--accent)"/><stop offset="1" stop-color="var(--accent-2)"/></linearGradient></defs></svg>
+        </span>
+        <span class="brand-name">Junhyeok Lee</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#research" data-i18n="nav.research">Research</a>
+        <a href="#papers" data-i18n="nav.papers">Papers</a>
+        <a href="#open-source" data-i18n="nav.oss">Code</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="kbd-btn" id="cmdOpen" type="button" aria-label="Open command menu">
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <kbd id="cmdKey">Ctrl K</kbd>
+        </button>
+        <button class="icon-btn lang-btn" id="langToggle" type="button" aria-label="Switch language">
+          <span data-l="en">EN</span><span class="sep">/</span><span data-l="ko">KO</span>
+        </button>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle color theme">
+          <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm nav-cta" data-i18n="nav.contact">Contact</a>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <a href="#open-source" class="pill reveal">
+            <span class="pill-dot" aria-hidden="true"></span>
+            <span data-i18n-html="hero.badge"><b>New</b> · MPIB benchmark data and evaluation code are public</span>
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M6 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <h1 class="reveal" data-i18n-html="hero.title">Medical imaging AI for <span class="grad">imperfect clinical data.</span></h1>
+          <p class="lead reveal" data-i18n="hero.sub">I’m Junhyeok Lee, a Ph.D. student at Seoul National University College of Medicine.</p>
+          <div class="cta-row reveal">
+            <a href="#research" class="btn btn-primary btn-lg"><span data-i18n="hero.cta1">See research</span>
+              <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a href="#contact" class="btn btn-ghost btn-lg" data-i18n="hero.cta2">Contact</a>
+          </div>
+          <p class="hero-meta reveal" data-i18n="hero.meta">AICON Lab · Department of Radiology, Seoul National University Hospital</p>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="scan" id="scan">
+            <canvas id="heroCanvas" aria-label="Interactive illustration: a sparsely observed brain scan that sharpens where you point" role="img"></canvas>
+            <span class="corner tl" aria-hidden="true"></span><span class="corner tr" aria-hidden="true"></span>
+            <span class="corner bl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
+            <div class="hud hud-tl mono" aria-hidden="true">AX · DWI · <span id="hudSlice">042</span></div>
+            <div class="hud hud-tr mono" aria-hidden="true">
+              <span><i class="dot dim"></i><span data-i18n="hero.observed">observed</span> <b id="obsPct">34%</b></span>
+              <span><i class="dot acc"></i><span data-i18n="hero.recovered">recovered</span> <b id="recPct">+0%</b></span>
+            </div>
+            <div class="hud hud-bl" data-i18n="hero.hint">Move your cursor over the scan to recover the signal</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container about">
+        <div class="about-photo reveal">
+          <img src="assets/img/profile.jpg" width="240" height="308" alt="Portrait of Junhyeok Lee" loading="lazy" decoding="async">
+          <div class="about-id">
+            <strong>Junhyeok Lee</strong>
+          </div>
+        </div>
+        <div class="about-copy">
+          <header class="sec-head reveal">
+            <p class="eyebrow" data-i18n="about.eyebrow">About</p>
+            <h2 data-i18n="about.title">A bit about me.</h2>
+          </header>
+          <p class="about-body reveal" data-i18n="about.body"></p>
+          <p class="card-label reveal" data-i18n="about.principles">How I try to work</p>
+          <ol class="principles reveal">
+            <li><span class="mono">01</span><div><strong data-i18n="about.p1t"></strong><p data-i18n="about.p1"></p></div></li>
+            <li><span class="mono">02</span><div><strong data-i18n="about.p2t"></strong><p data-i18n="about.p2"></p></div></li>
+            <li><span class="mono">03</span><div><strong data-i18n="about.p3t"></strong><p data-i18n="about.p3"></p></div></li>
+          </ol>
+          <p class="card-label reveal" data-i18n="about.stack">Tools I use</p>
+          <ul class="stack reveal" id="stack"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ JOURNEY ============ -->
+    <section class="section" id="journey">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="eyebrow" data-i18n="journey.eyebrow">Background</p>
+          <h2 data-i18n="journey.title">From circuits to clinics.</h2>
+        </header>
+        <div class="timeline" id="timeline">
+          <div class="tl-rail" aria-hidden="true"><div class="tl-fill" id="tlFill"></div></div>
+          <ol id="tlList"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESEARCH (directions + selected work) ============ -->
+    <section class="section" id="research">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="eyebrow" data-i18n="research.eyebrow">Research</p>
+          <h2 data-i18n="research.title">One question, four directions.</h2>
+          <p class="sec-sub" data-i18n="research.sub"></p>
+        </header>
+
+        <div class="tabs reveal" role="tablist" aria-label="Research directions" id="caseTabs">
+          <button role="tab" id="tab-integrate" aria-controls="panel-integrate" aria-selected="true" data-case="integrate"><span class="tab-n mono">01</span><span class="tab-cap">Integrate</span><span class="tab-title" data-cap-title="integrate"></span><span class="tab-name">GlioSurv</span></button>
+          <button role="tab" id="tab-recover" aria-controls="panel-recover" aria-selected="false" tabindex="-1" data-case="recover"><span class="tab-n mono">02</span><span class="tab-cap">Recover</span><span class="tab-title" data-cap-title="recover"></span><span class="tab-name">Lesion-aware LDM</span></button>
+          <button role="tab" id="tab-constrain" aria-controls="panel-constrain" aria-selected="false" tabindex="-1" data-case="constrain"><span class="tab-n mono">03</span><span class="tab-cap">Constrain</span><span class="tab-title" data-cap-title="constrain"></span><span class="tab-name">EPPINN</span></button>
+          <button role="tab" id="tab-contextualize" aria-controls="panel-contextualize" aria-selected="false" tabindex="-1" data-case="contextualize"><span class="tab-n mono">04</span><span class="tab-cap">Contextualize</span><span class="tab-title" data-cap-title="contextualize"></span><span class="tab-name">MC-CXR · MPIB</span></button>
+        </div>
+
+        <div class="panel" role="tabpanel" id="panel-integrate" aria-labelledby="tab-integrate">
+          <div class="dir-intro" data-cap-intro="integrate"></div>
+          <div class="panel-main">
+            <div class="panel-copy">
+              <p class="venue mono">npj Digital Medicine · 2025</p>
+              <h3 data-i18n="g.title"></h3>
+              <dl class="par">
+                <div><dt data-i18n="work.problem">Problem</dt><dd data-i18n="g.problem"></dd></div>
+                <div><dt data-i18n="work.approach">Approach</dt><dd data-i18n="g.approach"></dd></div>
+                <div><dt data-i18n="work.result">Result</dt><dd data-i18n="g.result"></dd></div>
+              </dl>
+              <div class="link-row">
+                <a class="btn btn-ghost btn-sm" href="https://www.nature.com/articles/s41746-025-02018-x" target="_blank" rel="noopener"><span data-i18n="work.paper">Paper</span> ↗</a>
+                <a class="btn btn-ghost btn-sm" href="https://github.com/snuh-rad-aicon/GlioSurv" target="_blank" rel="noopener"><span data-i18n="work.code">Code</span> ↗</a>
+              </div>
+            </div>
+            <div class="methods">
+              <figure class="method">
+                <button type="button" class="method-img" data-zoom="assets/img/fig/gliosurv-method.webp" aria-label="Enlarge figure">
+                  <img src="assets/img/fig/gliosurv-method.webp" width="1860" height="1152" alt="GlioSurv architecture: a vision transformer for MRI and language-model encoders for clinical, genetic and treatment text feed a transformer decoder with survival queries." loading="lazy" decoding="async">
+                </button>
+                <figcaption><span class="method-label" data-i18n="method.label">Method</span> <span data-i18n="fig.g"></span> <span class="method-src">Lee et al., npj Digit. Med. 2025 (CC BY 4.0)</span></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="panel-recover" aria-labelledby="tab-recover" hidden>
+          <div class="dir-intro" data-cap-intro="recover"></div>
+          <div class="panel-main">
+            <div class="panel-copy">
+              <p class="venue mono">MICCAI · 2025</p>
+              <h3 data-i18n="l.title"></h3>
+              <dl class="par">
+                <div><dt data-i18n="work.problem">Problem</dt><dd data-i18n="l.problem"></dd></div>
+                <div><dt data-i18n="work.approach">Approach</dt><dd data-i18n="l.approach"></dd></div>
+                <div><dt data-i18n="work.result">Result</dt><dd data-i18n="l.result"></dd></div>
+              </dl>
+              <div class="link-row">
+                <a class="btn btn-ghost btn-sm" href="https://papers.miccai.org/miccai-2025/0491-Paper2317.html" target="_blank" rel="noopener"><span data-i18n="work.paper">Paper</span> ↗</a>
+                <a class="btn btn-ghost btn-sm" href="https://github.com/snuh-rad-aicon/Diffusion-LAPT" target="_blank" rel="noopener"><span data-i18n="work.code">Code</span> ↗</a>
+              </div>
+            </div>
+            <div class="methods">
+              <figure class="method">
+                <button type="button" class="method-img" data-zoom="assets/img/fig/ldm-method.webp" aria-label="Enlarge figure">
+                  <img src="assets/img/fig/ldm-method.webp" width="1860" height="1174" alt="Lesion-aware post-training: CT perfusion conditions a latent diffusion model; one-step denoised latents are decoded to image space and trained with lesion-masked and image losses." loading="lazy" decoding="async">
+                </button>
+                <figcaption><span class="method-label" data-i18n="method.label">Method</span> <span data-i18n="fig.l"></span> <span class="method-src">Lee et al., MICCAI 2025 (arXiv:2510.09056)</span></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="panel-constrain" aria-labelledby="tab-constrain" hidden>
+          <div class="dir-intro" data-cap-intro="constrain"></div>
+          <div class="panel-main">
+            <div class="panel-copy">
+              <p class="venue mono">MICCAI · 2026</p>
+              <h3 data-i18n="e.title"></h3>
+              <dl class="par">
+                <div><dt data-i18n="work.problem">Problem</dt><dd data-i18n="e.problem"></dd></div>
+                <div><dt data-i18n="work.approach">Approach</dt><dd data-i18n="e.approach"></dd></div>
+                <div><dt data-i18n="work.result">Result</dt><dd data-i18n="e.result"></dd></div>
+              </dl>
+              <div class="link-row">
+                <a class="btn btn-ghost btn-sm" href="https://arxiv.org/abs/2603.09359" target="_blank" rel="noopener"><span data-i18n="work.paper">Paper</span> ↗</a>
+                <a class="btn btn-ghost btn-sm" href="https://github.com/jhlee0619/EPPINN" target="_blank" rel="noopener"><span data-i18n="work.code">Code</span> ↗</a>
+              </div>
+            </div>
+            <div class="methods">
+              <figure class="method">
+                <button type="button" class="method-img" data-zoom="assets/img/fig/eppinn-method.webp" aria-label="Enlarge figure">
+                  <img src="assets/img/fig/eppinn-method.webp" width="1860" height="696" alt="EPPINN: hash-grid encoded networks model the arterial input function, tissue concentration and perfusion parameters with evidential uncertainty, trained with data, physics-residual and evidential losses." loading="lazy" decoding="async">
+                </button>
+                <figcaption><span class="method-label" data-i18n="method.label">Method</span> <span data-i18n="fig.e"></span> <span class="method-src">Lee et al., MICCAI 2026 (arXiv:2603.09359)</span></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="panel-contextualize" aria-labelledby="tab-contextualize" hidden>
+          <div class="dir-intro" data-cap-intro="contextualize"></div>
+          <div class="panel-main">
+            <div class="panel-copy">
+              <p class="venue mono">Findings of EMNLP · 2026</p>
+              <h3 data-i18n="c.title"></h3>
+              <dl class="par">
+                <div><dt data-i18n="work.problem">Problem</dt><dd data-i18n="c.problem"></dd></div>
+                <div><dt data-i18n="work.approach">Approach</dt><dd data-i18n="c.approach"></dd></div>
+                <div><dt data-i18n="work.result">Result</dt><dd data-i18n="c.result"></dd></div>
+              </dl>
+              <div class="link-row">
+                <a class="btn btn-ghost btn-sm" href="https://arxiv.org/abs/2608.24118" target="_blank" rel="noopener">MC-CXR ↗</a>
+                <a class="btn btn-ghost btn-sm" href="https://arxiv.org/abs/2602.06268" target="_blank" rel="noopener">MPIB ↗</a>
+                <a class="btn btn-ghost btn-sm" href="https://huggingface.co/datasets/jhlee0619/mpib" target="_blank" rel="noopener"><span data-i18n="work.data">Dataset</span> ↗</a>
+              </div>
+            </div>
+            <div class="methods two">
+              <figure class="method">
+                <button type="button" class="method-img" data-zoom="assets/img/fig/mccxr-overview.webp" aria-label="Enlarge figure">
+                  <img src="assets/img/fig/mccxr-overview.webp" width="1373" height="1083" alt="MC-CXR design: the current chest X-ray is fixed while the model is tested without context, with reliable context, and with misleading context." loading="lazy" decoding="async">
+                </button>
+                <figcaption><span class="method-label" data-i18n="method.label">Method</span> <span data-i18n="fig.c"></span> <span class="method-src">Lee et al., Findings of EMNLP 2026 (arXiv:2608.24118)</span></figcaption>
+              </figure>
+              <figure class="method">
+                <button type="button" class="method-img" data-zoom="assets/img/fig/mpib-overview.webp" aria-label="Enlarge figure">
+                  <img src="assets/img/fig/mpib-overview.webp" width="1689" height="595" alt="MPIB overview: benign versus compromised retrieval-augmented generation across four clinical scenarios, with adversarial instructions injected into retrieved context." loading="lazy" decoding="async">
+                </button>
+                <figcaption><span class="method-label" data-i18n="method.label">Method</span> <span data-i18n="fig.m"></span> <span class="method-src">Lee et al., Findings of EMNLP 2026 (arXiv:2602.06268)</span></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="roadmap card reveal">
+          <p class="card-label" data-i18n="platform.roadmap">What’s next</p>
+          <ol class="loop">
+            <li class="on"><span data-i18n="platform.observe">Observe</span></li>
+            <li class="on"><span data-i18n="platform.understand">Understand</span></li>
+            <li class="on"><span data-i18n="platform.reason">Reason</span></li>
+            <li class="next"><span data-i18n="platform.act">Act</span></li>
+          </ol>
+          <p class="roadmap-text" data-i18n-html="platform.roadmapText"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PUBLICATIONS ============ -->
+    <section class="section" id="papers">
+      <div class="container">
+        <header class="sec-head sec-head-row reveal">
+          <div>
+            <p class="eyebrow" data-i18n="pubs.eyebrow">Papers</p>
+            <h2 data-i18n="pubs.title">Publications</h2>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="https://scholar.google.com/citations?user=uQGNBV0AAAAJ" target="_blank" rel="noopener"><span data-i18n="pubs.scholar">Google Scholar</span> ↗</a>
+        </header>
+        <div class="pub-tools reveal">
+          <label class="search">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input type="search" id="pubSearch" data-i18n-placeholder="pubs.search" placeholder="Search titles, venues, co-authors…" aria-label="Search publications">
+          </label>
+          <div class="chips" id="pubFilters" role="group" aria-label="Filter publications"></div>
+        </div>
+        <ol class="pubs" id="pubs"></ol>
+        <p class="pubs-empty" id="pubsEmpty" hidden data-i18n="pubs.empty">No papers match that filter.</p>
+      </div>
+    </section>
+
+    <!-- ============ RECOGNITION ============ -->
+    <section class="section" id="recognition">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="eyebrow" data-i18n="rec.eyebrow">Awards</p>
+          <h2 data-i18n="rec.title">Awards</h2>
+        </header>
+        <div class="awards" id="awards"></div>
+        <a class="press card reveal" href="https://www.ibric.org/bric/hanbitsa/han-interview.do?mode=view&amp;id=99364&amp;authorId=50580#!/list" target="_blank" rel="noopener">
+          <span class="press-tag mono" data-i18n="rec.press">Interview</span>
+          <span class="press-text" data-i18n="rec.bric">BRIC Hanbitsa interview about the GlioSurv study.</span>
+          <span class="press-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ OPEN SOURCE ============ -->
+    <section class="section" id="open-source">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="eyebrow" data-i18n="oss.eyebrow">Code</p>
+          <h2 data-i18n="oss.title">Code and tools.</h2>
+          <p class="sec-sub" data-i18n="oss.sub"></p>
+        </header>
+        <div class="chips reveal" id="ossFilters" role="group" aria-label="Filter repositories">
+          <button class="chip" data-f="all" aria-pressed="true" data-i18n="oss.all">All</button>
+          <button class="chip" data-f="tool" aria-pressed="false" data-i18n="oss.tool">Tools</button>
+          <button class="chip" data-f="research" aria-pressed="false" data-i18n="oss.research">Research code</button>
+          <button class="chip" data-f="data" aria-pressed="false" data-i18n="oss.data">Datasets</button>
+        </div>
+        <div class="repos" id="repos"></div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="contact-glow" aria-hidden="true"></div>
+          <h2 data-i18n="contact.title">Say hello.</h2>
+          <p class="sec-sub" data-i18n="contact.sub"></p>
+          <div class="cta-row center">
+            <a class="btn btn-primary btn-lg" href="mailto:evening0619@gmail.com" id="mailBtn">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+              <span data-i18n="contact.email">Email me</span></a>
+            <button class="btn btn-ghost btn-lg" type="button" id="copyEmail"><span class="mono">evening0619@gmail.com</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+          </div>
+          <ul class="socials">
+            <li><a href="https://scholar.google.com/citations?user=uQGNBV0AAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+            <li><a href="https://github.com/jhlee0619" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://huggingface.co/jhlee0619" target="_blank" rel="noopener">Hugging Face</a></li>
+            <li><a href="https://sites.google.com/view/snuhradaicon/home" target="_blank" rel="noopener">AICON Lab</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> Junhyeok Lee</span>
+      <span data-i18n="footer.built">Built with HTML, CSS &amp; JavaScript. Hosted on GitHub Pages.</span>
+      <span class="mono" data-i18n="footer.updated">Updated Oct 2026</span>
+    </div>
+  </footer>
+
+  <!-- Command palette -->
+  <div class="cmdk" id="cmdk" hidden>
+    <div class="cmdk-backdrop" data-close></div>
+    <div class="cmdk-dialog" role="dialog" aria-modal="true" aria-label="Command menu">
+      <div class="cmdk-input">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="cmdInput" type="text" autocomplete="off" spellcheck="false" data-i18n-placeholder="cmd.placeholder" placeholder="Type a command or search…" role="combobox" aria-expanded="true" aria-controls="cmdList" aria-autocomplete="list">
+        <kbd>Esc</kbd>
+      </div>
+      <ul class="cmdk-list" id="cmdList" role="listbox"></ul>
+    </div>
+  </div>
+
+  <!-- Figure lightbox -->
+  <dialog class="lightbox" id="lightbox" aria-label="Enlarged figure">
+    <button type="button" class="lightbox-close icon-btn" data-close aria-label="Close">✕</button>
+    <img id="lightboxImg" alt="">
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/hero.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

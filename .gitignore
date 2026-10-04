@@ -1,0 +1,9 @@
+# OS / sync clutter
+desktop.ini
+.DS_Store
+Thumbs.db
+
+# local agent/session state (never publish)
+.omc/
+.omx/
+.claude/
