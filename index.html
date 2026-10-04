@@ -29,9 +29,8 @@
     (function () {
       var d = document.documentElement, theme, lang;
       try { theme = localStorage.getItem('theme'); lang = localStorage.getItem('lang'); } catch (e) {}
-      if (theme !== 'light' && theme !== 'dark') {
-        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-      }
+      // Dark is the default; light only when the visitor picked it with the toggle.
+      if (theme !== 'light') theme = 'dark';
       var q = new URLSearchParams(location.search).get('lang');
       if (q === 'ko' || q === 'en') lang = q;
       d.setAttribute('data-theme', theme);
