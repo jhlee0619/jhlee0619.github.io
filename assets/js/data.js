@@ -289,13 +289,13 @@ window.I18N = {
     'hero.observed': 'observed', 'hero.recovered': 'recovered',
 
 
-    'platform.roadmap': 'What’s next',
+    'platform.roadmap': 'Current focus',
     'platform.observe': 'Observe', 'platform.understand': 'Understand', 'platform.reason': 'Reason', 'platform.act': 'Act',
-    'platform.roadmapText': 'So far my work has focused on <b>understanding</b> and <b>reasoning</b> from imperfect data. Next, I’d like to learn how such systems can <b>act</b> safely — with uncertainty gating, human oversight, and closed-loop validation.',
+    'platform.roadmapText': 'Published work so far is on <b>understanding</b> and <b>reasoning</b> from imperfect data. A later question is when a system should <b>act</b>, and when it should stop: uncertainty checks, a person in the loop, and a way to test the loop.',
 
     'research.eyebrow': 'Research',
-    'research.title': 'One question, four directions.',
-    'research.sub': 'Clinical AI rarely sees a complete patient: images are missing, evidence is mixed, measurements are noisy, and context can mislead. Each direction below looks at one part of this problem, shown through one representative paper and its method.',
+    'research.title': 'Four lines of work.',
+    'research.sub': 'The projects below deal with missing images, mixed evidence, noisy measurements, and context that can mislead. Each line is one paper and its method.',
     'research.related': 'Related work',
     'method.label': 'Method', 'method.enlarge': 'Enlarge figure',
     'fig.g': 'MRI is encoded by a vision transformer; clinical, genetic, and treatment information is written as text and encoded by language-model transformers. Survival queries attend to every modality in a transformer decoder with masked cross-attention.',
@@ -341,20 +341,20 @@ window.I18N = {
     'rec.bric': 'BRIC Hanbitsa interview about the GlioSurv study.',
 
     'journey.eyebrow': 'Background',
-    'journey.title': 'From circuits to clinics.',
+    'journey.title': 'Electronics, biomedical engineering, then clinical imaging.',
 
     'about.eyebrow': 'About',
-    'about.title': 'A bit about me.',
-    'about.body': 'I started in electronics engineering, moved to biomedical engineering, and now study medical imaging AI at Seoul National University Hospital’s AICON Lab, advised by Prof. Kyu Sung Choi. I’m most interested in problems where the data is imperfect and mistakes matter — acute stroke imaging, glioma prognosis, and the safety of language models used with clinical text.',
-    'about.principles': 'How I try to work',
+    'about.title': 'About',
+    'about.body': 'I started in electronics engineering, moved to biomedical engineering, and now study medical imaging AI at Seoul National University Hospital’s AICON Lab, advised by Prof. Kyu Sung Choi. Current topics are acute stroke imaging, glioma prognosis, and language models used with clinical text.',
+    'about.principles': 'Working habits',
     'about.p1t': 'Check before trusting', 'about.p1': 'I try to accept AI-generated code or text only after running it or checking it against a source.',
     'about.p2t': 'Mind the clinical cost', 'about.p2': 'Errors are not equally costly — a missed lesion matters more than the average pixel.',
     'about.p3t': 'Be clear about limits', 'about.p3': 'Say what a result shows, and what it doesn’t.',
     'about.stack': 'Tools I use',
 
-    'contact.title': 'Say hello.',
-    'contact.sub': 'Happy to talk about medical imaging, multimodal models, or clinical AI safety. Questions about the papers or code are welcome too.',
-    'contact.email': 'Email me', 'contact.copy': 'Copy address', 'contact.copied': 'Copied!',
+    'contact.title': 'Contact',
+    'contact.sub': 'Questions about the papers or code can go to the address below.',
+    'contact.email': 'Email', 'contact.copy': 'Copy address', 'contact.copied': 'Copied',
 
     'footer.built': 'Built with HTML, CSS & JavaScript. Hosted on GitHub Pages.',
     'footer.updated': 'Updated Oct 2026',
@@ -377,13 +377,13 @@ window.I18N = {
     'hero.observed': '관측', 'hero.recovered': '복원',
 
 
-    'platform.roadmap': '앞으로',
+    'platform.roadmap': '지금 하는 일',
     'platform.observe': '관측', 'platform.understand': '이해', 'platform.reason': '추론', 'platform.act': '행동',
-    'platform.roadmapText': '지금까지는 불완전한 데이터를 <b>이해</b>하고 <b>추론</b>하는 데 집중했습니다. 앞으로는 이런 시스템이 불확실성 게이팅·사람의 감독·폐루프 검증을 갖추고 안전하게 <b>행동</b>하는 방법을 배우고 싶습니다.',
+    'platform.roadmapText': '지금까지 낸 연구는 불완전한 데이터를 <b>이해</b>하고 <b>추론</b>하는 쪽에 있습니다. 이후에는 시스템이 언제 <b>행동</b>하고 언제 멈출지, 불확실성 확인과 사람 검토, 그 과정을 어떻게 시험할지를 다룹니다.',
 
     'research.eyebrow': '연구',
-    'research.title': '하나의 질문, 네 가지 방향.',
-    'research.sub': '임상 AI가 환자를 완전하게 보는 경우는 드뭅니다. 영상은 빠져 있고, 근거는 섞여 있고, 측정에는 잡음이 있고, 문맥은 오해를 부르기도 합니다. 아래 네 방향은 각각 이 문제의 한 부분을 다루며, 방향마다 대표 논문 한 편과 그 방법을 소개합니다.',
+    'research.title': '네 가지 연구.',
+    'research.sub': '빠진 영상, 섞인 근거, 잡음 있는 측정, 오해를 부르는 문맥을 다룹니다. 각 항목은 논문 한 편과 그 방법입니다.',
     'research.related': '관련 연구',
     'method.label': '방법', 'method.enlarge': '그림 확대',
     'fig.g': 'MRI는 비전 트랜스포머로, 임상·유전·치료 정보는 문장으로 바꿔 언어모델 트랜스포머로 인코딩합니다. 생존 쿼리가 masked cross-attention을 갖춘 트랜스포머 디코더에서 각 모달리티를 참조합니다.',
@@ -429,20 +429,20 @@ window.I18N = {
     'rec.bric': 'GlioSurv 연구에 관한 BRIC 한빛사 인터뷰.',
 
     'journey.eyebrow': '이력',
-    'journey.title': '회로에서 임상으로.',
+    'journey.title': '전자공학, 의공학, 그리고 임상 영상.',
 
     'about.eyebrow': '소개',
-    'about.title': '조금 더 소개하면.',
-    'about.body': '전자공학으로 시작해 의공학을 거쳐, 지금은 서울대학교병원 AICON Lab에서 최규성 교수님의 지도로 의료영상 AI를 연구하고 있습니다. 데이터가 불완전하고 실수의 대가가 큰 문제 — 급성 뇌졸중 영상, 신경교종 예후, 임상 텍스트를 다루는 언어모델의 안전성 — 에 관심이 많습니다.',
-    'about.principles': '일할 때 지키려는 것',
+    'about.title': '소개',
+    'about.body': '전자공학으로 시작해 의공학을 거쳐, 지금은 서울대학교병원 AICON Lab에서 최규성 교수님의 지도로 의료영상 AI를 연구하고 있습니다. 현재 주제는 급성 뇌졸중 영상, 신경교종 예후, 임상 텍스트를 쓰는 언어모델입니다.',
+    'about.principles': '작업 습관',
     'about.p1t': '확인한 뒤에 믿기', 'about.p1': 'AI가 만든 코드나 글은 직접 실행하거나 출처와 대조한 뒤에 받아들이려고 합니다.',
     'about.p2t': '임상적 비용 생각하기', 'about.p2': '모든 오차의 비용이 같지 않습니다. 평균 픽셀 오차보다 놓친 병변이 더 중요합니다.',
     'about.p3t': '한계를 분명히', 'about.p3': '결과가 보여주는 것과 보여주지 않는 것을 구분해서 말하려고 합니다.',
     'about.stack': '사용하는 도구',
 
-    'contact.title': '편하게 연락 주세요.',
-    'contact.sub': '의료영상, 멀티모달 모델, 임상 AI 안전성에 관한 이야기라면 언제든 환영합니다. 논문이나 코드에 관한 질문도 좋습니다.',
-    'contact.email': '이메일 보내기', 'contact.copy': '주소 복사', 'contact.copied': '복사됨!',
+    'contact.title': '연락',
+    'contact.sub': '논문이나 코드에 대한 질문은 아래 주소로 보내 주세요.',
+    'contact.email': '이메일', 'contact.copy': '주소 복사', 'contact.copied': '복사됨',
 
     'footer.built': 'HTML, CSS, JavaScript로 만들고 GitHub Pages로 호스팅합니다.',
     'footer.updated': '2026년 10월 업데이트',
